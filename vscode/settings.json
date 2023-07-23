@@ -1,0 +1,7 @@
+{
+    "files.autoSave": "afterDelay",
+    "security.workspace.trust.untrustedFiles": "open",
+    "diffviewer.outputFormat": "side-by-side",
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.fontFamily": "MesloLGS NF"
+}
