@@ -111,6 +111,7 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export PATH=~/tools/nvim-linux64/bin:$PATH
+export PATH=/home/test/.local/bin:$PATH
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 eval "$(zoxide init zsh)"
