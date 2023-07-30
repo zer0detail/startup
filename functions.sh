@@ -222,7 +222,7 @@ push_nvchad_files() {
   ## null-ls.lua
   update_file_if_different "nvim/configs/null-ls.lua" "$NVIM_DIR/lua/custom/configs/null-ls.lua"
  
-  echo "${YELLOW}Run :TSInstall python cpp inside nvim to finish it's configuration${NORMAL}"
+  echo "${YELLOW}Run ":TSInstall python cpp" and ":MasonInstallAll" inside nvim to finish it's configuration${NORMAL}"
 }
 
 
