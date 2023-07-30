@@ -10,10 +10,10 @@ install_apt_packages
 
 setup_nerdfonts
 
-install_zoxide
-
 ## Download and configure zsh and oh-my-zsh
 configure_zsh
+
+install_zoxide
 
 # install kitty 
 configure_kitty
