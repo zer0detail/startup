@@ -163,8 +163,8 @@ install_nvim() {
   else
     echo "${BLUE}Installing nvim version 0.9.0...${NORMAL}"
     curl -s  -L https://github.com/neovim/neovim/releases/download/v0.9.0/nvim-linux64.tar.gz | tar zxv -C ~/tools/
-    echo 'export PATH=~/tools/nvim-linux64/bin:$PATH' >> ~/.zshrc
-    source ~/.zshrc
+#    echo 'export PATH=~/tools/nvim-linux64/bin:$PATH' >> ~/.zshrc
+#    source ~/.zshrc
   fi
 }
 
