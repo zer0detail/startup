@@ -303,7 +303,10 @@ install_alacritty(){
 configure_kitty(){
     update_file_if_different "kitty.conf" "$KITTY_FILE"
     update_file_if_different "dracula.conf" "$DRACULA_FILE"
-    echo "${YELLOW}Open Kitty Terminal and run this build script again${NORMAL}"
+    if [[ $SHELL == "/bin/bash" ]]; then
+      echo "${YELLOW}Open Kitty Terminal and run this build script again${NORMAL}"
+      exit
+    fi
 }
 
 update_file_if_different(){
