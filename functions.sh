@@ -192,14 +192,17 @@ install_rustup() {
     echo "${GREEN}rustup is already installed.${NORMAL}"
   else
     echo "${BLUE}Installing rustup${NORMAL}"
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > rust_install.sh 
+    chmod +x rust_install.sh
+    ./rust_install.sh -q -y
+    rm -f rust_install.sh 
     source "$HOME/.cargo/env"
   fi
 }
 
 
 push_nvchad_files() {
-
+  mkdir -p "$HOME/.config/nvim/lua/custom/configs"
   ## plugins.lua ##
   update_file_if_different "nvim/plugins.lua" "$NVIM_DIR/lua/custom/plugins.lua"
   if [[ $CHANGED == 1 ]]; then
@@ -210,8 +213,6 @@ push_nvchad_files() {
   fi
   ## chadrc.lua ##
   update_file_if_different "nvim/chadrc.lua" "$NVIM_DIR/lua/custom/chadrc.lua"
-  ## configs dir ##
-  mkdir -p "$HOME/.config/nvim/lua/custom/configs"
   ## lspconfig.lua
   update_file_if_different "nvim/configs/lspconfig.lua" "$NVIM_DIR/lua/custom/configs/lspconfig.lua"
   ## rust-tools.lua
