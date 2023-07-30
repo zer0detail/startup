@@ -304,7 +304,7 @@ install_alacritty(){
 configure_kitty(){
     update_file_if_different "kitty.conf" "$KITTY_FILE"
     update_file_if_different "dracula.conf" "$DRACULA_FILE"
-    if [[ $SHELL == "/bin/bash" ]]; then
+    if [[ ! $TERM == "xterm-kitty" ]]; then
       echo "${YELLOW}Open Kitty Terminal and run this build script again${NORMAL}"
       exit
     fi
