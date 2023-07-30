@@ -10,6 +10,8 @@ install_apt_packages
 
 setup_nerdfonts
 
+install_zoxide
+
 ## Download and configure zsh and oh-my-zsh
 configure_zsh
 
@@ -22,7 +24,7 @@ configure_kitty
 
 # installs the z command
 # it'll get alias'ed to cd, just know you can jump to dirs now
-install_zoxide
+
 
 # Fancy cat. it'll be aliased to cat so that cat is now fancy
 install_bat
