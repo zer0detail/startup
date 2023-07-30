@@ -11,6 +11,9 @@ install_apt_packages
 ## Download and configure zsh and oh-my-zsh
 configure_zsh
 
+# install kitty 
+configure_kitty
+
 # I guess not https://github.com/kovidgoyal/kitty/issues/391#issuecomment-638320745
 # create_tmux_conf 
 # install_tpm # Install tmux plugin manager (tpm)
@@ -32,8 +35,3 @@ install_nvim
 install_ripgrep
 install_nvchad
 push_nvchad_files
-
-# Use kitty instead
-# install_alacritty
-# Install kitty  terminal emulator. Use it instead of the default terminal.
-configure_kitty

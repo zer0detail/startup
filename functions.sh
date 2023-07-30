@@ -63,7 +63,7 @@ configure_zsh(){
 
 }
 
-# Function to check and clone a Git repository if it doesn't exist
+# Function to check and clone a Git repositor if it doesn't exist
 check_and_clone_repo() {
     local repo_url="$1"
     local destination_dir="$2"
@@ -194,6 +194,7 @@ install_rustup() {
   else
     echo "${BLUE}Installing rustup${NORMAL}"
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    source "$HOME/.cargo/env"
   fi
 }
 
@@ -302,6 +303,7 @@ install_alacritty(){
 configure_kitty(){
     update_file_if_different "kitty.conf" "$KITTY_FILE"
     update_file_if_different "dracula.conf" "$DRACULA_FILE"
+    echo "${YELLOW}Open Kitty Terminal and run this build script again${NORMAL}"
 }
 
 update_file_if_different(){

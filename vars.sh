@@ -20,7 +20,7 @@ PACKAGES=(
  "npm"
 ) 
  
-DIRS_TO_CREATE=("$HOME/repos", "$HOME/tools")
+DIRS_TO_CREATE=("$HOME/repos", "$HOME/tools" )
 ## COLOURS
 NORMAL=$(tput sgr0)
 GREEN=$(tput setaf 2)
