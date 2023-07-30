@@ -34,15 +34,15 @@ configure_zsh(){
     # Check if oh-my-zsh is installed and run the installation script if not present
     if [ ! -d "$HOME/.oh-my-zsh" ]; then
         echo "${BLUE}Installing oh-my-zsh...${NORMAL}"
-        sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+        sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" 
+        exit 
     else
         echo "${GREEN}oh-my-zsh is already installed.${NORMAL}"
     fi
-
     # Check if powerlevel10k is cloned and clone if it's not
     if [ ! -d "$P10k_DIR" ]; then
         echo "${BLUE}Cloning powerlevel10k repository...${NORMAL}"
-        git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$P10k_DIR"
+        git clone -q --depth=1 https://github.com/romkatv/powerlevel10k.git "$P10k_DIR"
     else
         echo "${GREEN}powerlevel10k repository is already cloned.${NORMAL}"
     fi
@@ -70,7 +70,7 @@ check_and_clone_repo() {
 
     if [ ! -d "$destination_dir" ]; then
         echo "${BLUE}Cloning repository: $repo_url to $destination_dir${NORMAL}"
-        git clone "$repo_url" "$destination_dir" 1>/dev/null
+        git clone -q "$repo_url" "$destination_dir" 
     else
         echo "${GREEN}Repository already exists at: $destination_dir${NORMAL}"
     fi
@@ -153,7 +153,7 @@ install_zoxide() {
         echo 'eval "$(zoxide init zsh)"' >> "$ZSHRC_FILE"
         echo "${YELLOW}Resource ~/.zshrc${NORMAL}"
     else
-        echo "${GREEN}ZSH_THEME is already set to powerlevel10k.${NORMAL}"
+        echo "${GREEN}Zoxide already added to .zshrc.${NORMAL}"
     fi
 }
 
@@ -230,7 +230,7 @@ install_bat(){
     else
         echo "${BLUE}Installing bat${NORMAL}"
         curl -LO https://github.com/sharkdp/bat/releases/download/v0.23.0/bat-musl_0.23.0_amd64.deb
-        sudo dpkg -i bat-musl_0.23.0_amd64.deb
+        sudo dpkg -i bat-musl_0.23.0_amd64.deb 1>dev/null
         rm -f bat-musl_0.23.0_amd64.deb
     fi
 

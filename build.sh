@@ -22,6 +22,8 @@ install_zoxide
 # Fancy cat. it'll be aliased to cat so that cat is now fancy
 install_bat
 
+# Install install_rust 
+install_rustup
 # Fancy ls. it'll be aliased to ls in .zshrc
 install_lsd
 
@@ -29,7 +31,6 @@ install_lsd
 install_nvim
 install_ripgrep
 install_nvchad
-install_rustup
 push_nvchad_files
 
 # Use kitty instead
