@@ -21,14 +21,14 @@ install_apt_packages() {
 
 configure_zsh(){
     # Check if Zsh is the default shell
-    if [[ "$SHELL" != *"/zsh" ]]; then
-        echo "${BLUE}Setting Zsh as the default shell...${NORMAL}"
-        # Set Zsh as the default shell for the current user
-        chsh -s "$(which zsh)"
-        echo "${YELLOW}Please log out and log back in to start using Zsh as your default shell.${NORMAL}"
-    else
-        echo "${GREEN}Zsh is already the default shell.${NORMAL}"
-    fi
+    #if [[ "$SHELL" != *"/zsh" ]]; then
+    #    echo "${BLUE}Setting Zsh as the default shell...${NORMAL}"
+       # Set Zsh as the default shell for the current user
+    #    chsh -s "$(which zsh)"
+    #    echo "${YELLOW}Please log out and log back in to start using Zsh as your default shell.${NORMAL}"
+    #else
+    #    echo "${GREEN}Zsh is already the default shell.${NORMAL}"
+    #fi
 
 
     # Check if oh-my-zsh is installed and run the installation script if not present
@@ -164,6 +164,7 @@ install_nvim() {
     echo "${BLUE}Installing nvim version 0.9.0...${NORMAL}"
     curl -s  -L https://github.com/neovim/neovim/releases/download/v0.9.0/nvim-linux64.tar.gz | tar zxv -C ~/tools/
     echo 'export PATH=~/tools/nvim-linux64/bin:$PATH' >> ~/.zshrc
+    source ~/.zshrc
   fi
 }
 
@@ -232,7 +233,7 @@ install_bat(){
     else
         echo "${BLUE}Installing bat${NORMAL}"
         curl -LO https://github.com/sharkdp/bat/releases/download/v0.23.0/bat-musl_0.23.0_amd64.deb
-        sudo dpkg -i bat-musl_0.23.0_amd64.deb 1>dev/null
+        sudo dpkg -i bat-musl_0.23.0_amd64.deb 
         rm -f bat-musl_0.23.0_amd64.deb
     fi
 
