@@ -210,8 +210,6 @@ push_nvchad_files() {
   if [[ $CHANGED == 1 ]]; then
     echo "${BLUE}Updating Nvim plugins with mason${NORMAL}"
     nvim --headless +MasonInstallAll +q
-    nvim --headless +TSInstallSync python +q
-    nvim --headless +TSInstallSync cpp +q
   fi
   ## chadrc.lua ##
   update_file_if_different "nvim/chadrc.lua" "$NVIM_DIR/lua/custom/chadrc.lua"
@@ -223,7 +221,8 @@ push_nvchad_files() {
   update_file_if_different "nvim/configs/mappings.lua" "$NVIM_DIR/lua/custom/configs/mappings.lua"
   ## null-ls.lua
   update_file_if_different "nvim/configs/null-ls.lua" "$NVIM_DIR/lua/custom/configs/null-ls.lua"
-  
+ 
+  echo "${YELLOW}Run :TSInstall python cpp inside nvim to finish it's configuration${NORMAL}"
 }
 
 
