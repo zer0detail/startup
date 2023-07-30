@@ -58,8 +58,8 @@ configure_zsh(){
     syntax_highlighting_destination="$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
     check_and_clone_repo "$syntax_highlighting_repo" "$syntax_highlighting_destination"
 
-    update_file_if_different ".zshrc" "$HOME/.zshrc"
-    update_file_if_different ".p10k.zsh" "$HOME/.p10k.zsh"
+    update_file_if_different "zsh/.zshrc" "$HOME/.zshrc"
+    update_file_if_different "zsh/.p10k.zsh" "$HOME/.p10k.zsh"
 
 }
 
@@ -302,8 +302,8 @@ install_alacritty(){
 }
 
 configure_kitty(){
-    update_file_if_different "kitty.conf" "$KITTY_FILE"
-    update_file_if_different "dracula.conf" "$DRACULA_FILE"
+    update_file_if_different "kitty/kitty.conf" "$KITTY_FILE"
+    update_file_if_different "kitty/dracula.conf" "$DRACULA_FILE"
     if [[ ! $TERM == "xterm-kitty" ]]; then
       echo "${YELLOW}Open Kitty Terminal and run this build script again${NORMAL}"
       exit
