@@ -59,6 +59,7 @@ configure_zsh(){
     check_and_clone_repo "$syntax_highlighting_repo" "$syntax_highlighting_destination"
 
     update_file_if_different ".zshrc" "$HOME/.zshrc"
+    update_file_if_different ".p10k.zsh" "$HOME/.p10k.zsh"
 
 }
 

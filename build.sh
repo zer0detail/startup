@@ -8,6 +8,8 @@ create_dirs
 ## First install any apt packages to gather prereqs
 install_apt_packages 
 
+setup_nerdfonts
+
 ## Download and configure zsh and oh-my-zsh
 configure_zsh
 
