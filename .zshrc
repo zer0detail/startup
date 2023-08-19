@@ -118,8 +118,18 @@ eval "$(zoxide init zsh)"
 
 alias icat="kitty +kitten icat"
 alias s="kitty +kitten ssh"
-alias cat=bat
+alias cat="bat --paging=never"
+alias catl=bat
 alias cd=z
 alias l=lsd 
-alias ll=lsd -l 
-alias lll=lsd -lah
+alias ll="lsd -l" 
+alias lll="lsd -lah"
+alias nvim="nvim +NvimTreeToggle"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export ANDROID_HOME="/usr/lib/android-sdk/"
+export PATH="${PATH}:${ANDROID_HOME}tools/:${ANDROID_HOME}platform-tools/"
+export ANDROID_SDK_HOME="$HOME"

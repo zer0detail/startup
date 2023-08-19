@@ -39,3 +39,7 @@ install_nvim
 install_ripgrep
 install_nvchad
 push_nvchad_files
+
+install_docker
+install_postman
+install_helix

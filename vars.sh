@@ -18,6 +18,11 @@ PACKAGES=(
  "imagemagick"
  "python3.10-venv"
  "npm"
+ "htop"
+ "ca-certificates"
+ "curl"
+ "gnupg"
+ "xclip"
 ) 
  
 DIRS_TO_CREATE=("$HOME/repos" "$HOME/tools" "$HOME/.config/kitty" )
@@ -40,5 +45,7 @@ ZSHRC_FILE="$HOME/.zshrc"
 ZOXIDE_FILE="$HOME/.local/bin/zoxide"
 ALACRITTY_FILE="$HOME/.alacritty.toml"
 KITTY_FILE="$HOME/.config/kitty/kitty.conf"
+KITTY_SESSION_FILE="$HOME/.config/kitty/session.conf"
 DRACULA_FILE="$HOME/.config/kitty/dracula.conf"
 ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
+HELIX_REPO="$HOME/repo/helix"
