@@ -281,7 +281,8 @@ configure_kitty(){
 
 
 install_docker() {
-  if [ ! -d "/etc/apt/keyrings" ]; then
+  if [ ! -d "/etc/apt/keyrings
+        " ]; then
     log_work "DOCKER" "Adding keyrings directory"
     sudo install -m 0755 -d /etc/apt/keyrings
   else 
@@ -359,18 +360,27 @@ install_postman() {
 }
 
 install_helix() {
-  if [ ! -d "HELIX_REPO" ]; then
-    log_work "HX" "Cloning Helix Repo to $HELIX_REPO"
-    git clone https://github.com/helix-editor/helix "HELIX_REPO" >/dev/null
+  if ! sudo add-apt-repository -L | grep helix &>/dev/null; then
+    log_work "HX" "Adding Helix PPA"
+    sudo add-apt-repository ppa:maveonair/helix-editor
+    sudo apt update &>/dev/null
   else
-    log_done "HX" "Helix repo already cloned at {$HELIX_REPO}"
+    log_done "HX" "Helix PPA already added"
   fi
 
-  pushd $HELIX_REPO
   if ! command -v hx &>/dev/null; then
-    log_work "HX" "Building Helix"
-    cargo install --path helix-term --locked
+    log_work "HX" "Installing Helix"
+    sudo apt install -y helix &>/dev/null
   else 
     log_done "HX" "Helix already installed"
+  fi
+}
+
+install_dudust() {
+  if ! command -v dust &>/dev/null; then
+    log_work "DUDUST" "Adding du-dust"
+    cargo install du-dust
+  else
+    log_done "DUDUST" "du-dust already installed"
   fi
 }

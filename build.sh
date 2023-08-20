@@ -43,3 +43,4 @@ push_nvchad_files
 install_docker
 install_postman
 install_helix
+install_dudust

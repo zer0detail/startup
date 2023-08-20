@@ -125,6 +125,8 @@ alias l=lsd
 alias ll="lsd -l" 
 alias lll="lsd -lah"
 alias nvim="nvim +NvimTreeToggle"
+alias f="fdfind"
+alias du="dust"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -133,3 +135,4 @@ export NVM_DIR="$HOME/.nvm"
 export ANDROID_HOME="/usr/lib/android-sdk/"
 export PATH="${PATH}:${ANDROID_HOME}tools/:${ANDROID_HOME}platform-tools/"
 export ANDROID_SDK_HOME="$HOME"
+export HELIX_RUNTIME="$HOME/repos/helix/runtime"

@@ -24,7 +24,8 @@ update_file_if_different(){
           log_done "CONF" "$SRC is already configured.${NORMAL}"
       else
           echo "${YELLOW}$DST file mismatch${NORMAL}"
-          cp $SRC $DST          CHANGED=1
+          cp $SRC $DST
+          CHANGED=1
       fi
   else
       log_work "CONF" "Configuring $DST${NORMAL}"
