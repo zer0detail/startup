@@ -16,7 +16,6 @@ PACKAGES=(
  "scdoc"
  "kitty"
  "imagemagick"
- "python3.10-venv"
  "npm"
  "htop"
  "ca-certificates"

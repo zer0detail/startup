@@ -17,7 +17,7 @@ install_apt_packages() {
         sudo apt-get install -y "${packages_to_install[@]}" 1>/dev/null
     fi
 }
-if 
+ 
 configure_zsh(){
     # Check if Zsh is the default shell
     if [[ "$SHELL" != *"/zsh" ]]; then
