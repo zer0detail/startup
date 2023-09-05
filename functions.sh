@@ -178,7 +178,9 @@ install_rustup() {
   fi
 }
 
-
+configure_nvim() {
+  #TODO for all files in ./nvim directory. run update_file_if_different
+}
 push_nvchad_files() {
   mkdir -p "$HOME/.config/nvim/lua/custom/configs"
   ## plugins.lua ##
@@ -374,6 +376,9 @@ install_helix() {
   else 
     log_done "HX" "Helix already installed"
   fi
+
+  update_file_if_different "helix/config.toml" "$HELIX_FILE"
+  
 }
 
 install_dudust() {
@@ -383,4 +388,81 @@ install_dudust() {
   else
     log_done "DUDUST" "du-dust already installed"
   fi
+}
+
+install_node_stuff() {
+  if ! command -v nvm &>/dev/null; then
+    log_work "NVM" "Installing nvm"  
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash &>/dev/null
+
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" #load bash completions
+  else
+    log_done "NVM" "nvm already installed"
+  fi
+
+  if ! command -v npm &>/dev/null; then
+    log_work "NVM" "Installing node"
+    nvm install node &>/dev/null
+  else
+    log_done "NVM" "node already installed"
+  fi
+    
+}
+
+install_lsp_servers() {
+  
+  if ! command -v bash-language-server &>/dev/null; then
+    log_work "LSP" "Installing bash LSP"
+    npm i -g bash-language-server &>/dev/null
+  else
+    log_done "LSP" "bash LSP already installed"
+  fi
+
+  if ! command -v clangd &>/dev/null; then
+    log_work "LSP" "Installing clangd"
+    sudo apt-get install -y clangd &>/dev/null
+  else
+    log_done "LSP" "clangd already installed"
+  fi
+
+  if ! command -v docker-langserver &>/dev/null; then
+    log_work "LSP" "Installing docker LSP"
+    npm i -g dockerfile-language-server-nodejs &>/dev/null
+  else
+    log_done "LSP" "docker LSP already installed"
+  fi
+
+  
+  if ! command -v vscode-html-language-server &>/dev/null; then
+    log_work "LSP" "Installing HTML+JSON LSP"
+    npm i -g vscode-langservers-extracted &>/dev/null
+  else
+    log_done "LSP" "HTML+JSON LSP already installed"
+  fi 
+
+  
+  if ! command -v pylsp &>/dev/null; then
+    log_work "LSP" "Installing python LSP"
+    sudo apt-get install -y python3-pylsp &>/dev/null
+  else
+    log_done "LSP" "python LSP already installed"
+  fi
+  
+  if ! command -v taplo-cli &>/dev/null; then
+    log_work "LSP" "Installing TOML LSP"
+    cargo install taplo-cli --locked --features lsp  &>/dev/null
+  else
+    log_done "LSP" "TOML LSP already installed"
+  fi
+
+  if ! command -v yaml-language-server &>/dev/null; then
+    log_work "LSP" "Installing YAML LSP"
+    npm i -g yaml-language-server@next  &>/dev/null
+  else
+    log_done "LSP" "YAML LSP already installed"
+  fi
+  
+  
 }

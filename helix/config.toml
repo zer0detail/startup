@@ -1,0 +1,16 @@
+theme = "base16_default"
+
+[editor]
+line-number = "relative"
+
+[editor.file-picker]
+hidden = false
+
+
+[editor.statusline]
+center = ["version-control", "diagnostics", "workspace-diagnostics"]
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+

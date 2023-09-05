@@ -124,7 +124,6 @@ alias cd=z
 alias l=lsd 
 alias ll="lsd -l" 
 alias lll="lsd -lah"
-alias nvim="nvim +NvimTreeToggle"
 alias f="fdfind"
 alias du="dust"
 

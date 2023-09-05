@@ -1,13 +1,20 @@
+#include <ios>
 #include <iostream>
-//template <int i> void a() { a<i + 1>(); }
+#include <iterator>
+template <int i> void a() { a<i + 1>(); }
+#include "stdio.h"
 
-//void foo() { a<0>(); }
+std::end(
+    foo()
+  )
+void foo() { a<0>(); }
 
 int main() {
   
   char a[10];
 
-  a[10]   =   1;
+  auto placeholder = 10;
+  a[placeholder] = 1;
 
   return 0;
 }

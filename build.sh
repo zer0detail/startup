@@ -37,10 +37,12 @@ install_lsd
 # All of these are nvim related
 install_nvim
 install_ripgrep
-install_nvchad
-push_nvchad_files
-
+#install_nvchad
+#push_nvchad_files
+configure_nvim
 install_docker
 install_postman
 install_helix
 install_dudust
+install_node_stuff
+install_lsp_servers
