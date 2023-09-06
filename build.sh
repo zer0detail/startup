@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env bash
 source functions.sh
 source vars.sh
 

@@ -29,6 +29,7 @@ update_file_if_different(){
       fi
   else
       log_work "CONF" "Configuring $DST${NORMAL}"
+      mkdir -p $(dirname $DST)
       cp $SRC $DST
       CHANGED=1
   fi

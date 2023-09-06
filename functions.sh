@@ -179,7 +179,25 @@ install_rustup() {
 }
 
 configure_nvim() {
-  #TODO for all files in ./nvim directory. run update_file_if_different
+  if [ ! -d "$1" ]; then
+    pushd ./nvim &>/dev/null
+    local push=true
+    dir="."
+  else
+    local push=false
+    dir=$1
+  fi 
+  for file in "$dir"/*; do
+    if [ -d "$file" ]; then
+      configure_nvim "$file"
+    elif [ -f "$file" ]; then
+      update_file_if_different "$file" "$NVIM_DIR/$file"
+    fi
+  done
+  if $push == true; then
+    popd &>/dev/null
+  fi
+
 }
 push_nvchad_files() {
   mkdir -p "$HOME/.config/nvim/lua/custom/configs"
@@ -283,8 +301,7 @@ configure_kitty(){
 
 
 install_docker() {
-  if [ ! -d "/etc/apt/keyrings
-        " ]; then
+  if [ ! -d "/etc/apt/keyrings" ]; then
     log_work "DOCKER" "Adding keyrings directory"
     sudo install -m 0755 -d /etc/apt/keyrings
   else 
@@ -391,6 +408,7 @@ install_dudust() {
 }
 
 install_node_stuff() {
+  source ~/.nvm/nvm.sh &>/dev/null
   if ! command -v nvm &>/dev/null; then
     log_work "NVM" "Installing nvm"  
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash &>/dev/null
@@ -408,11 +426,10 @@ install_node_stuff() {
   else
     log_done "NVM" "node already installed"
   fi
-    
+  
 }
 
 install_lsp_servers() {
-  
   if ! command -v bash-language-server &>/dev/null; then
     log_work "LSP" "Installing bash LSP"
     npm i -g bash-language-server &>/dev/null
@@ -450,9 +467,9 @@ install_lsp_servers() {
     log_done "LSP" "python LSP already installed"
   fi
   
-  if ! command -v taplo-cli &>/dev/null; then
+  if ! command -v taplo &>/dev/null; then
     log_work "LSP" "Installing TOML LSP"
-    cargo install taplo-cli --locked --features lsp  &>/dev/null
+    cargo install taplo-cli --locked --features lsp  
   else
     log_done "LSP" "TOML LSP already installed"
   fi
