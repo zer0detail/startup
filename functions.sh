@@ -348,8 +348,8 @@ install_docker() {
   if ! groups | grep -q "docker"; then
     log_work "DOCKER" "Adding current user to docker group"
     sudo usermod -aG docker $USER
-    log_prompt "DOCKER" "Forcing group status to take effect reloads the current shell and kills the scipt. Please rerun $0"
-    newgrp docker 
+    log_prompt "DOCKER" "Forcing group status to take effect reloads the current shell and kills the script. Please rerun $0"
+    su - $USER 
   else
     log_done "DOCKER" "Current user already in docker group"
   fi 
@@ -428,7 +428,7 @@ install_node_stuff() {
 
   if ! command -v npm &>/dev/null; then
     log_work "NVM" "Installing node"
-    nvm install node &>/dev/null
+    nvm install node 
   else
     log_done "NVM" "node already installed"
   fi
