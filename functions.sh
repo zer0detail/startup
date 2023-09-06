@@ -294,7 +294,13 @@ configure_kitty(){
     update_file_if_different "kitty/dracula.conf" "$DRACULA_FILE"
     update_file_if_different "kitty/session.conf" "$KITTY_SESSION_FILE"
     if [[ ! $TERM == "xterm-kitty" ]]; then
-      log_prompt "KITTY" "Open Kitty Terminal and run this build script again"
+      #log_prompt "KITTY" "Open Kitty Terminal and run this build script again"
+      #exit
+      log_work "KITTY" "Launching Kitty terminal to continue installation"
+      kitty -o allow_remote_control=yes --listen-on unix:/tmp/mykitty  &
+      sleep 1
+      kitty @ --to unix:/tmp/mykitty send-text "cd $(pwd)\n"
+      kitty @ --to unix:/tmp/mykitty send-text "./build.sh\n"
       exit
     fi
 }
