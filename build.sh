@@ -1,4 +1,5 @@
 #!/bin/env bash
+sudo apt update
 source functions.sh
 source vars.sh
 
