@@ -91,7 +91,7 @@ local mappings = {
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-  ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+  ["d"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover Documentation" },
   ["f"] = {
     "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
     "Find files",
@@ -102,6 +102,13 @@ local mappings = {
     name = "AI",
     m = { "<cmd>let g:codeium_manual = v:true<cr>", "Toggle automatic completions" },
     d = { "<cmd>let g:codeium_enabled = v:false<cr>", "Disable codeium"},
+  },
+  h = {
+    name = "Hardtime",
+    e = { "<cmd>Hardtime enable<CR>", "Enable" },
+    d = { "<cmd>Hardtime disable<CR>", "Disable" },
+    t = { "<cmd>Hardtime toggle<CR>", "Toggle" },
+    r = { "<cmd>Hardtime report<CR>", "Report" },
   },
   p = {
     name = "Packer",

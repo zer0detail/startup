@@ -60,6 +60,8 @@ return packer.startup(function(use)
   use "goolord/alpha-nvim"
   use "nvim-lualine/lualine.nvim"
   use "akinsho/toggleterm.nvim"
+  use "m4xshen/hardtime.nvim"
+  use "MunifTanjim/nui.nvim"
 
   -- Colour Scheme 
   use { "catppuccin/nvim", as = "catpupuccin" }
